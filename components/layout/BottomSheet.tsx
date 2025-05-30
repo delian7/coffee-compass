@@ -13,12 +13,19 @@ interface BottomSheetProps {
 export function BottomSheet({ isOpen, onToggle }: BottomSheetProps) {
   const { filters, setFilters } = useVenues();
   const sheetRef = useRef<HTMLDivElement>(null);
-  
+
+  // Add explicit close handler
+  const handleClose = () => {
+    if (isOpen) {
+      onToggle();
+    }
+  };
+
   // Handle filter change
   const handleFilterChange = (type: 'all' | 'coffee' | 'restaurant' | 'bar') => {
     setFilters({ type });
   };
-  
+
   // Close when clicking outside on mobile
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -32,13 +39,15 @@ export function BottomSheet({ isOpen, onToggle }: BottomSheetProps) {
     };
 
     document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
     };
   }, [isOpen, onToggle]);
-  
+
   return (
-    <div 
+    <div
       ref={sheetRef}
       className={cn(
         "bottom-sheet md:hidden fixed bottom-0 left-0 right-0 bg-white rounded-t-xl shadow-[0_-4px_12px_rgba(0,0,0,0.1)] transition-transform z-20 h-[85vh]",
@@ -46,11 +55,11 @@ export function BottomSheet({ isOpen, onToggle }: BottomSheetProps) {
       )}
     >
       <div className="p-4 border-b border-gray-200">
-        <div 
-          className="w-12 h-1 bg-gray-300 rounded-full mx-auto mb-4 cursor-pointer"
-          onClick={onToggle}
+        <div
+          className="w-12 h-1 bg-gray-300 rounded-full mx-auto mb-4 cursor-pointer hover:bg-gray-400 transition-colors"
+          onClick={handleClose}
         />
-        
+
         {/* Mobile Filters */}
         <div className="mb-4 overflow-x-auto hide-scrollbar">
           <FilterButtonGroup
@@ -59,11 +68,11 @@ export function BottomSheet({ isOpen, onToggle }: BottomSheetProps) {
             className="flex-nowrap overflow-x-auto pb-2 -mx-1"
           />
         </div>
-        
+
         {/* Mobile Search */}
         <Search />
       </div>
-      
+
       {/* Mobile Venue List */}
       <div className="overflow-y-auto" style={{ maxHeight: 'calc(85vh - 140px)' }}>
         <VenueList />

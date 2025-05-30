@@ -7,7 +7,7 @@ import { Sidebar } from '@/components/layout/Sidebar';
 import { BottomSheet } from '@/components/layout/BottomSheet';
 import { VenueDetails } from '@/components/venues/VenueDetails';
 
-export default function Home() {
+export default function Index() {
   const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
   const [isClient, setIsClient] = useState(false);
 

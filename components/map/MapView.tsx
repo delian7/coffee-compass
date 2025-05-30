@@ -79,10 +79,6 @@ export default function MapView() {
 
   return (
     <div className="relative w-full h-full">
-      {/* Map Debugger */}
-      <MapDebugger />
-
-      {/* Map container */}
       <div
         id="map"
         className="absolute inset-0 w-full h-full"

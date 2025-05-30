@@ -12,7 +12,7 @@ export function Header({ onMenuClick }: HeaderProps) {
         <Coffee className="text-coffee-primary text-xl mr-2" />
         <h1 className="font-poppins font-bold text-xl text-coffee-primary">CoffeeMap</h1>
       </div>
-      <Button 
+      <Button
         variant="default"
         size="icon"
         className="bg-coffee-primary text-white rounded-full p-2 shadow-md hover:bg-opacity-90 transition-colors"

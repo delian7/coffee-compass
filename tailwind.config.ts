@@ -7,6 +7,7 @@ export default {
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './styles/**/*.{css,scss,sass,less,styl}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
@@ -65,6 +66,12 @@ export default {
           "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
+        },
+        coffee: {
+          primary: "#6F4E37", // Coffee brown
+          light: "#F5F5F5",   // Light gray
+          dark: "#2C1810",    // Dark brown
+          accent: "#D4A574",  // Light brown
         },
       },
       keyframes: {
