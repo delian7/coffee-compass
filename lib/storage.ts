@@ -60,7 +60,11 @@ export class MemStorage implements IStorage {
 
   async createUser(insertUser: InsertUser): Promise<User> {
     const id = this.userCurrentId++;
-    const user: User = { ...insertUser, id };
+    const user = {
+      id,
+      username: insertUser.username,
+      password: insertUser.password
+    } satisfies User;
     this.users.set(id, user);
     return user;
   }
@@ -106,19 +110,24 @@ export class MemStorage implements IStorage {
 
   async createVenue(insertVenue: InsertVenue): Promise<Venue> {
     const id = this.venueCurrentId++;
-    const venue: Venue = {
-      ...insertVenue,
+    const venue = {
       id,
-      rating: insertVenue.rating || null,
-      reviewCount: insertVenue.reviewCount || null,
-      priceLevel: insertVenue.priceLevel || null,
-      openingHours: insertVenue.openingHours || null,
-      phoneNumber: insertVenue.phoneNumber || null,
-      website: insertVenue.website || null,
-      imageUrl: insertVenue.imageUrl || null,
-      tags: insertVenue.tags || null,
+      name: insertVenue.name,
+      type: insertVenue.type,
+      description: insertVenue.description,
+      address: insertVenue.address,
+      latitude: insertVenue.latitude,
+      longitude: insertVenue.longitude,
+      rating: insertVenue.rating ?? null,
+      reviewCount: insertVenue.reviewCount ?? null,
+      priceLevel: insertVenue.priceLevel ?? null,
+      openingHours: insertVenue.openingHours ?? null,
+      phoneNumber: insertVenue.phoneNumber ?? null,
+      website: insertVenue.website ?? null,
+      imageUrl: insertVenue.imageUrl ?? null,
+      tags: insertVenue.tags ?? null,
       distance: 0
-    };
+    } satisfies Venue;
     this.venues.set(id, venue);
     return venue;
   }

@@ -9,7 +9,7 @@ export const users = pgTable("users", {
   password: text("password").notNull(),
 });
 
-export const insertUserSchema = createInsertSchema(users, {
+export const insertUserSchema = z.object({
   username: z.string(),
   password: z.string()
 });
@@ -34,21 +34,21 @@ export const venues = pgTable("venues", {
   distance: doublePrecision("distance"), // Calculated field, not stored in DB
 });
 
-export const insertVenueSchema = createInsertSchema(venues, {
+export const insertVenueSchema = z.object({
   name: z.string(),
   type: z.string(),
   description: z.string(),
   address: z.string(),
   latitude: z.number(),
   longitude: z.number(),
-  rating: z.number().optional(),
-  reviewCount: z.number().optional(),
-  priceLevel: z.string().optional(),
-  openingHours: z.string().optional(),
-  phoneNumber: z.string().optional(),
-  website: z.string().optional(),
-  imageUrl: z.string().optional(),
-  tags: z.array(z.string()).optional()
+  rating: z.number().nullable(),
+  reviewCount: z.number().nullable(),
+  priceLevel: z.string().nullable(),
+  openingHours: z.string().nullable(),
+  phoneNumber: z.string().nullable(),
+  website: z.string().nullable(),
+  imageUrl: z.string().nullable(),
+  tags: z.array(z.string()).nullable()
 });
 
 // Types
