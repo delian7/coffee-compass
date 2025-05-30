@@ -9,9 +9,9 @@ export const users = pgTable("users", {
   password: text("password").notNull(),
 });
 
-export const insertUserSchema = createInsertSchema(users).pick({
-  username: true,
-  password: true,
+export const insertUserSchema = createInsertSchema(users, {
+  username: z.string(),
+  password: z.string()
 });
 
 // Venue schema for coffee shops, restaurants, and bars
@@ -34,9 +34,21 @@ export const venues = pgTable("venues", {
   distance: doublePrecision("distance"), // Calculated field, not stored in DB
 });
 
-export const insertVenueSchema = createInsertSchema(venues).omit({
-  id: true,
-  distance: true,
+export const insertVenueSchema = createInsertSchema(venues, {
+  name: z.string(),
+  type: z.string(),
+  description: z.string(),
+  address: z.string(),
+  latitude: z.number(),
+  longitude: z.number(),
+  rating: z.number().optional(),
+  reviewCount: z.number().optional(),
+  priceLevel: z.string().optional(),
+  openingHours: z.string().optional(),
+  phoneNumber: z.string().optional(),
+  website: z.string().optional(),
+  imageUrl: z.string().optional(),
+  tags: z.array(z.string()).optional()
 });
 
 // Types
