@@ -11,16 +11,16 @@ export default function Index() {
   const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
   const [isClient, setIsClient] = useState(false);
 
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
   const toggleBottomSheet = () => {
     setIsBottomSheetOpen(!isBottomSheetOpen);
   };
 
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   if (!isClient) {
-    return null; // or a loading spinner
+    return null;
   }
 
   return (
@@ -32,7 +32,10 @@ export default function Index() {
             <MapView />
           </main>
           <Sidebar />
-          <BottomSheet isOpen={isBottomSheetOpen} onToggle={toggleBottomSheet} />
+          <BottomSheet
+            isOpen={isBottomSheetOpen}
+            onToggle={toggleBottomSheet}
+          />
           <VenueDetails />
         </div>
       </VenueProvider>
