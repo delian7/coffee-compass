@@ -15,3 +15,10 @@
     --accent-foreground: 222.2 47.4% 11.2%;
   }
 }
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}

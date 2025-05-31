@@ -102,19 +102,71 @@ export function MapProvider({ children }: { children: ReactNode }) {
   // Get user's location
   const getUserLocation = async (): Promise<UserLocation> => {
     setIsLocatingUser(true);
+    console.log('Getting user location...');
+
+    // Remove previous user location marker if it exists
+    markers.forEach(marker => {
+      if (marker.getElement().classList.contains('user-location-marker')) {
+        marker.remove();
+      }
+    });
 
     try {
       const location = await getLocation();
+      console.log('Received location:', location);
       setUserLocation(location);
 
-      // Center map on user location
+      // Create wrapper element
+      const wrapper = document.createElement('div');
+      wrapper.className = 'user-location-marker relative';
+      wrapper.style.width = '20px';
+      wrapper.style.height = '20px';
+
+      // Create pulse effect
+      const pulse = document.createElement('div');
+      pulse.style.position = 'absolute';
+      pulse.style.width = '20px';
+      pulse.style.height = '20px';
+      pulse.style.backgroundColor = '#3B82F6';
+      pulse.style.borderRadius = '50%';
+      pulse.style.opacity = '0.5';
+      pulse.style.animation = 'ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite';
+
+      // Create dot
+      const dot = document.createElement('div');
+      dot.style.position = 'absolute';
+      dot.style.width = '12px';
+      dot.style.height = '12px';
+      dot.style.backgroundColor = '#3B82F6';
+      dot.style.borderRadius = '50%';
+      dot.style.border = '2px solid white';
+      dot.style.left = '4px';
+      dot.style.top = '4px';
+
+      // Combine elements
+      wrapper.appendChild(pulse);
+      wrapper.appendChild(dot);
+
+      // Add custom marker to map
       if (map) {
+        console.log('Adding marker at:', [location.longitude, location.latitude]);
+        const marker = new mapboxgl.Marker({
+          element: wrapper,
+          anchor: 'center'
+        })
+          .setLngLat([location.longitude, location.latitude])
+          .addTo(map);
+
+        console.log('Marker added:', marker);
+        setMarkers(prev => [...prev, marker]);
         flyTo([location.longitude, location.latitude]);
+      } else {
+        console.error('Map is not initialized');
       }
 
       return location;
     } catch (error) {
-      console.error('Error getting user location:', error);
+      console.error('Error in getUserLocation:', error);
       toast({
         title: 'Location Error',
         description: 'Unable to get your location. Please check your browser permissions.',
