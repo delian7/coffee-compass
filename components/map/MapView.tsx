@@ -42,13 +42,11 @@ export default function MapView() {
 
     // Add markers for filtered venues
     filteredVenues.forEach((venue: Venue) => {
-      const markerElement = createMarkerElement(venue.type);
-
       // Create a new marker
       const marker = new VenueMarker({
-        element: markerElement,
         venue,
-        onClick: () => selectVenue(venue)
+        onClick: () => selectVenue(venue),
+        isSelected: selectedVenue?.id === venue.id
       });
 
       // Add to map
@@ -65,7 +63,7 @@ export default function MapView() {
       });
       markersRef.current.clear();
     };
-  }, [filteredVenues, isMapLoaded, map, selectVenue]);
+  }, [filteredVenues, isMapLoaded, map, selectVenue, selectedVenue]);
 
   // Handle refreshing venues
   const handleRefresh = async () => {
