@@ -254,13 +254,15 @@ export class MemStorage implements IStorage {
 
         // Normalize venue type
         let normalizedType = type;
-        if (type.includes("coffee") || type.includes("café") || type.includes("cafe")) {
+        if (type.includes("coffee") || type.includes("café") || type.includes("coffee shop") || type.includes("cafe")) {
           normalizedType = "coffee";
         } else if (type.includes("restaurant") || type.includes("food")) {
           normalizedType = "restaurant";
-        } else if (type.includes("bar") || type.includes("pub") || type.includes("lounge")) {
+        } else if (type.includes("bar") || type.includes("pub") || type.includes("lounge") || type.includes("brewery/winery/distillery")) {
           normalizedType = "bar";
         }
+
+        console.log("Normalized type:", normalizedType);
 
         return {
           id,

@@ -9,6 +9,12 @@ export default {
     './styles/**/*.{css,scss,sass,less,styl}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  safelist: [
+    'bg-coffee-primary',
+    'bg-red-500',
+    'bg-indigo-600',
+    'bg-gray-500'
+  ],
   theme: {
     extend: {
       borderRadius: {

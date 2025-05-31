@@ -6,7 +6,7 @@ import { useIsMobile } from '@/hooks/use-mobile';
 export function VenueList() {
   const { filteredVenues, isLoading } = useVenues();
   const isMobile = useIsMobile();
-  
+
   if (isLoading) {
     return (
       <div className="flex items-center justify-center p-8">
@@ -14,7 +14,7 @@ export function VenueList() {
       </div>
     );
   }
-  
+
   if (filteredVenues.length === 0) {
     return (
       <div className="p-6 text-center">
@@ -23,20 +23,19 @@ export function VenueList() {
       </div>
     );
   }
-  
+
   return (
     <div className="venue-list p-4">
       <h2 className="font-poppins font-semibold text-lg mb-3 px-2">
-        {filteredVenues.length > 0 
-          ? `Nearby Venues (${filteredVenues.length})` 
+        {filteredVenues.length > 0
+          ? `Nearby Venues (${filteredVenues.length})`
           : 'No venues found'}
       </h2>
-      
       {filteredVenues.map((venue) => (
-        <VenueCard 
-          key={venue.id} 
-          venue={venue} 
-          isMobile={isMobile} 
+        <VenueCard
+          key={venue.id}
+          venue={venue}
+          isMobile={isMobile}
         />
       ))}
     </div>

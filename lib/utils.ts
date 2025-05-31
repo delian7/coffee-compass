@@ -67,7 +67,7 @@ export function formatDistance(distance: number | undefined): string {
 export function getVenueTypeLabel(type: string): string {
   switch (type.toLowerCase()) {
     case 'coffee':
-      return 'Coffee Shop';
+      return 'Coffee';
     case 'restaurant':
       return 'Restaurant';
     case 'bar':
