@@ -9,7 +9,7 @@ mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
 // Default map options
 export const defaultMapOptions = {
   container: 'map',
-  style: 'mapbox://styles/mapbox/light-v11',
+  style: 'mapbox://styles/mapbox/light-v10',
   center: [-122.3842, 47.6686] as [number, number], // Ballard
   zoom: 12,
   minZoom: 10,

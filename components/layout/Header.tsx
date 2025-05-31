@@ -10,7 +10,7 @@ export function Header({ onMenuClick }: HeaderProps) {
     <header className="bg-white shadow-md py-4 px-5 flex justify-between items-center z-10 md:hidden">
       <div className="flex items-center">
         <Coffee className="text-coffee-primary text-xl mr-2" />
-        <h1 className="font-poppins font-bold text-xl text-coffee-primary">CoffeeMap</h1>
+        <h1 className="font-poppins font-bold text-xl text-coffee-primary">CoffeeCompass</h1>
       </div>
       <Button
         variant="default"
