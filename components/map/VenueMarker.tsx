@@ -1,17 +1,21 @@
 import { Marker } from 'mapbox-gl';
 import { Venue } from '@/types/venues';
+import { createMarkerElement } from './MarkerElement';
 
 interface VenueMarkerProps {
-  element: HTMLElement;
   venue: Venue;
   onClick: () => void;
+  isSelected?: boolean;
 }
 
 export default class VenueMarker extends Marker {
   venue: Venue;
   onClick: () => void;
 
-  constructor({ element, venue, onClick }: VenueMarkerProps) {
+  constructor({ venue, onClick, isSelected = false }: VenueMarkerProps) {
+    // Create the marker element
+    const element = createMarkerElement({ venue, isSelected });
+
     // Create the marker with the venue's coordinates
     super({
       element,
