@@ -54,11 +54,11 @@ export function BottomSheet({ isOpen, onToggle }: BottomSheetProps) {
         isOpen ? "transform-none" : "transform translate-y-[calc(100%-70px)]"
       )}
     >
-      <div className="p-4 border-b border-gray-200">
+      <div className={`p-4 border-b border-gray-200 ${!isOpen ? 'pb-8' : ''}`}>
         {isOpen && (
           <button
             onClick={handleClose}
-            className="absolute right-4 top-4 p-2 text-gray-500 hover:text-gray-700"
+            className="absolute right-4 top-2 p-2 text-gray-500 hover:text-gray-700"
             aria-label="Close sheet"
           >
             <svg
@@ -79,7 +79,7 @@ export function BottomSheet({ isOpen, onToggle }: BottomSheetProps) {
         )}
 
         {/* Mobile Filters */}
-        <div className="mb-4 overflow-x-auto hide-scrollbar">
+        <div className={`mb-6 overflow-x-auto hide-scrollbar ${isOpen ? 'mt-6' : 'mt-2'}`}>
           <FilterButtonGroup
             activeType={filters.type}
             onFilterChange={handleFilterChange}
