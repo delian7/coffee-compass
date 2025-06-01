@@ -18,7 +18,7 @@ export function VenueProvider({ children }: { children: ReactNode }) {
   const [selectedVenue, setSelectedVenue] = useState<Venue | null>(null);
   const [userLocation, setUserLocation] = useState<UserLocation | null>(null);
   const [filters, setFiltersState] = useState<VenueFilters>({
-    type: 'all',
+    type: 'coffee',
     search: '',
   });
   const queryClient = useQueryClient();
