@@ -154,7 +154,7 @@ export function VenueDetails() {
 
             {selectedVenue.recommender && (
               <div className="flex items-center text-gray-600 italic font-bold text-sm mt-3">
-                <span>Recommendation: {selectedVenue.recommender}</span>
+                <span>Recommended By: {selectedVenue.recommender}</span>
               </div>
             )}
           </div>
