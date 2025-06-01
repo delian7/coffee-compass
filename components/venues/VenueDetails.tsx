@@ -106,13 +106,18 @@ export function VenueDetails() {
           </p>
 
           <div className="border-t border-gray-200 pt-4 space-y-3">
+            {selectedVenue.neighborhood && (
+              <div className="flex items-center text-gray-600 text-sm mt-3">
+                <span>{selectedVenue.neighborhood}</span>
+              </div>
+            )}
             <div className="flex items-start">
               <MapPin className="h-5 w-5 mt-1 mr-3 text-coffee-primary" />
               <div>
                 <p className="text-gray-800">{selectedVenue.address}</p>
-                {/* {selectedVenue.distance !== undefined && (
+                {selectedVenue.distance !== undefined && (
                   <p className="text-gray-600 text-sm">{selectedVenue.distance} miles away</p>
-                )} */}
+                )}
               </div>
             </div>
 
@@ -143,12 +148,6 @@ export function VenueDetails() {
                 >
                   {selectedVenue.website.replace(/^https?:\/\/(www\.)?/, '')}
                 </a>
-              </div>
-            )}
-
-            {selectedVenue.neighborhood && (
-              <div className="flex items-center text-gray-600 text-sm mt-3">
-                <span>{selectedVenue.neighborhood}</span>
               </div>
             )}
 

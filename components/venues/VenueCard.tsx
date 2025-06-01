@@ -86,7 +86,7 @@ export function VenueCard({ venue, isMobile = false }: VenueCardProps) {
           {truncateText(venue.description, 100)}
         </p>
 
-        <div className="flex items-center text-gray-600 mt-3">
+        <div className="flex items-center text-gray-600 text-xs mt-3">
           <span>{venue.neighborhood}</span>
         </div>
 
@@ -95,8 +95,8 @@ export function VenueCard({ venue, isMobile = false }: VenueCardProps) {
         </div>
 
         <div className="flex items-center text-gray-600 text-sm mt-3">
-          {/* <MapPin className="h-4 w-4 mr-1 text-coffee-primary" /> */}
-          {/* <span>{formatDistance(venue.distance)}</span> */}
+          <MapPin className="h-4 w-4 mr-1 text-coffee-primary" />
+          <span>{formatDistance(venue.distance)}</span>
           {/* <span className="mx-2">•</span> */}
           {/* <Clock className="h-4 w-4 mr-1" /> */}
           {/* <span>{formatOpeningHours(venue.openingHours)}</span> */}
