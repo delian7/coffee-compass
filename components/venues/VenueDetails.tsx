@@ -63,6 +63,8 @@ export function VenueDetails() {
           </h2>
 
           <div className="flex items-center mb-4">
+            <span className="text-gray-600 text-sm italic">{selectedVenue.experienceLevel}</span>
+
             {/* <Rating
               value={selectedVenue.rating || 0}
               reviewCount={selectedVenue.reviewCount}
