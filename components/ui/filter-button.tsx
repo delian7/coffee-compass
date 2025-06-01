@@ -10,20 +10,20 @@ interface FilterButtonProps {
   className?: string;
 }
 
-export function FilterButton({ 
-  label, 
-  type, 
-  isActive, 
-  onClick, 
-  className 
+export function FilterButton({
+  label,
+  type,
+  isActive,
+  onClick,
+  className
 }: FilterButtonProps) {
   return (
     <Button
       variant={isActive ? "default" : "outline"}
       className={cn(
         "rounded-full font-medium whitespace-nowrap",
-        isActive 
-          ? "bg-coffee-primary text-white hover:bg-coffee-primary/90" 
+        isActive
+          ? "bg-coffee-primary text-white hover:bg-coffee-primary/90"
           : "bg-gray-200 text-coffee-dark hover:bg-gray-300 border-0",
         className
       )}
@@ -34,8 +34,8 @@ export function FilterButton({
   );
 }
 
-export function FilterButtonGroup({ 
-  activeType, 
+export function FilterButtonGroup({
+  activeType,
   onFilterChange,
   className
 }: {
@@ -52,10 +52,10 @@ export function FilterButtonGroup({
         onClick={onFilterChange}
       />
       <FilterButton
-        label="Coffee Shops"
+        label="Coffees & Bakeries"
         type="coffee"
-        isActive={activeType === 'coffee'}
-        onClick={onFilterChange}
+        isActive={activeType === 'coffee' || activeType === 'bakery'}
+        onClick={() => onFilterChange('coffee')}
       />
       <FilterButton
         label="Restaurants"

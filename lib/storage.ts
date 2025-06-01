@@ -262,18 +262,18 @@ export class MemStorage implements IStorage {
         let normalizedType = type;
         if (type.includes("coffee") || type.includes("café") || type.includes("coffee shop") || type.includes("cafe")) {
           normalizedType = "coffee";
+        } else if (type.includes("bakery") || type.includes("bakery/cafe")) {
+          normalizedType = "bakery";
         } else if (type.includes("restaurant") || type.includes("food")) {
           normalizedType = "restaurant";
         } else if (type.includes("bar") || type.includes("pub") || type.includes("lounge") || type.includes("brewery/winery/distillery")) {
           normalizedType = "bar";
         }
 
-        console.log("Normalized type:", normalizedType);
-
         return {
           id,
           name,
-          type: normalizedType as "coffee" | "restaurant" | "bar",
+          type: normalizedType as "coffee" | "bakery" | "restaurant" | "bar",
           description,
           address,
           experienceLevel,

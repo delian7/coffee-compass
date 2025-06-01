@@ -13,7 +13,8 @@ export default {
     'bg-coffee-primary',
     'bg-red-500',
     'bg-indigo-600',
-    'bg-gray-500'
+    'bg-gray-500',
+    'bg-purple-500'
   ],
   theme: {
     extend: {

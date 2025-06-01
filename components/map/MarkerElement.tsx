@@ -42,6 +42,8 @@ function getBackgroundColor(type: string): string {
       return '#EF4444'; // red-500
     case 'bar':
       return '#4F46E5'; // indigo-600
+    case 'bakery':
+      return '#8B5FBF'; // purple-500
     default:
       return '#6B7280'; // gray-500
   }

@@ -29,8 +29,14 @@ export function VenueProvider({ children }: { children: ReactNode }) {
 
   // Apply filters
   const filteredVenues = venues.filter((venue: Venue) => {
-    if (filters.type !== 'all' && venue.type !== filters.type) {
-      return false;
+    if (filters.type !== 'all') {
+      if (filters.type === 'coffee') {
+        if (venue.type !== 'coffee' && venue.type !== 'bakery') {
+          return false;
+        }
+      } else if (venue.type !== filters.type) {
+        return false;
+      }
     }
     if (filters.search) {
       const searchLower = filters.search.toLowerCase();

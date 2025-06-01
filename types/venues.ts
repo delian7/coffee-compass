@@ -20,7 +20,7 @@ export interface Venue {
   distance?: number;
 }
 
-export type VenueType = 'coffee' | 'restaurant' | 'bar';
+export type VenueType = 'coffee' | 'bakery' | 'restaurant' | 'bar';
 
 export interface VenueFilters {
   type: VenueType | 'all';

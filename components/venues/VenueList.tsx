@@ -28,7 +28,7 @@ export function VenueList() {
     <div className="venue-list p-4">
       <h2 className="font-poppins font-semibold text-lg mb-3 px-2">
         {filteredVenues.length > 0
-          ? `Nearby Venues (${filteredVenues.length})`
+          ? `All Venues (${filteredVenues.length})`
           : 'No venues found'}
       </h2>
       {filteredVenues.map((venue) => (
