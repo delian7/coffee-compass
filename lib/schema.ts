@@ -24,6 +24,7 @@ export const venues = pgTable("venues", {
   latitude: doublePrecision("latitude").notNull(),
   longitude: doublePrecision("longitude").notNull(),
   rating: doublePrecision("rating"),
+  experienceLevel: text("experience_level"),
   reviewCount: integer("review_count"),
   priceLevel: text("price_level"), // '$', '$$', '$$$'
   openingHours: text("opening_hours"),
@@ -43,6 +44,7 @@ export const insertVenueSchema = z.object({
   longitude: z.number(),
   rating: z.number().nullable(),
   reviewCount: z.number().nullable(),
+  experienceLevel: z.string().nullable(),
   priceLevel: z.string().nullable(),
   openingHours: z.string().nullable(),
   phoneNumber: z.string().nullable(),

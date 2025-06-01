@@ -114,6 +114,7 @@ export class MemStorage implements IStorage {
       id,
       name: insertVenue.name,
       type: insertVenue.type,
+      experienceLevel: insertVenue.experienceLevel,
       description: insertVenue.description,
       address: insertVenue.address,
       latitude: insertVenue.latitude,
@@ -228,6 +229,7 @@ export class MemStorage implements IStorage {
         const id = index + 1;
         const name = row[0] || "";
         const type = row[1]?.toLowerCase() || "coffee"; // Default to coffee shop
+        const experienceLevel = row[2] || "";
         const description = row[4] || "";
         const address = row[6] || "";
 
@@ -270,6 +272,7 @@ export class MemStorage implements IStorage {
           type: normalizedType as "coffee" | "restaurant" | "bar",
           description,
           address,
+          experienceLevel,
           latitude,
           longitude,
           rating: parseFloat(row[6]) || null,
@@ -315,6 +318,7 @@ export class MemStorage implements IStorage {
         address: "123 Main St, New York, NY",
         latitude: 40.7128,
         longitude: -74.006,
+        experienceLevel: "tried it already",
         rating: 4.5,
         reviewCount: 128,
         priceLevel: "$$",
@@ -333,6 +337,7 @@ export class MemStorage implements IStorage {
         address: "456 Broadway, New York, NY",
         latitude: 40.7193,
         longitude: -73.9986,
+        experienceLevel: "tried it already",
         rating: 4.7,
         reviewCount: 256,
         priceLevel: "$$$",
@@ -351,6 +356,7 @@ export class MemStorage implements IStorage {
         address: "789 5th Ave, New York, NY",
         latitude: 40.7234,
         longitude: -73.9961,
+        experienceLevel: "tried it already",
         rating: 4.3,
         reviewCount: 178,
         priceLevel: "$$$",
@@ -369,6 +375,7 @@ export class MemStorage implements IStorage {
         address: "234 Park Ave, New York, NY",
         latitude: 40.7142,
         longitude: -74.0121,
+        experienceLevel: "tried it already",
         rating: 4.8,
         reviewCount: 213,
         priceLevel: "$$",

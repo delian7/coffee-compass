@@ -1,6 +1,7 @@
 export interface Venue {
   id: number;
   name: string;
+  experienceLevel: string;
   type: VenueType;
   description: string;
   address: string;

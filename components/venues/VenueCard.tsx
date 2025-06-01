@@ -78,6 +78,10 @@ export function VenueCard({ venue, isMobile = false }: VenueCardProps) {
           className="mt-1"
         /> */}
 
+        <div className="flex items-center text-gray-600 text-xs font-semibold italic mt-2">
+          <span>{venue.experienceLevel}</span>
+        </div>
+
         <p className="text-gray-600 text-sm mt-2">
           {truncateText(venue.description, 100)}
         </p>
