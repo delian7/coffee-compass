@@ -86,6 +86,14 @@ export function VenueCard({ venue, isMobile = false }: VenueCardProps) {
           {truncateText(venue.description, 100)}
         </p>
 
+        <div className="flex items-center text-gray-600 mt-3">
+          <span>{venue.neighborhood}</span>
+        </div>
+
+        <div className="flex items-center text-gray-600 text-xs italic font-bold mt-3">
+          <span>Recommended By: {venue.recommender}</span>
+        </div>
+
         <div className="flex items-center text-gray-600 text-sm mt-3">
           {/* <MapPin className="h-4 w-4 mr-1 text-coffee-primary" /> */}
           {/* <span>{formatDistance(venue.distance)}</span> */}

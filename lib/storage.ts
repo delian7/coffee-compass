@@ -114,6 +114,8 @@ export class MemStorage implements IStorage {
       id,
       name: insertVenue.name,
       type: insertVenue.type,
+      neighborhood: insertVenue.neighborhood,
+      recommender: insertVenue.recommender,
       experienceLevel: insertVenue.experienceLevel,
       description: insertVenue.description,
       address: insertVenue.address,
@@ -230,7 +232,9 @@ export class MemStorage implements IStorage {
         const name = row[0] || "";
         const type = row[1]?.toLowerCase() || "coffee"; // Default to coffee shop
         const experienceLevel = row[2] || "";
+        const neighborhood = row[3] || "";
         const description = row[4] || "";
+        const recommender = row[5] || "";
         const address = row[6] || "";
 
         // Check if we have coordinates already
@@ -275,6 +279,8 @@ export class MemStorage implements IStorage {
           experienceLevel,
           latitude,
           longitude,
+          neighborhood,
+          recommender,
           rating: parseFloat(row[6]) || null,
           reviewCount: parseInt(row[7], 10) || null,
           priceLevel: row[8] || null,
@@ -313,6 +319,8 @@ export class MemStorage implements IStorage {
       {
         id: 1,
         name: "Urban Bean Coffeehouse",
+        neighborhood: "Greenwich Village",
+        recommender: "John Doe",
         type: "coffee",
         description: "Cozy coffeehouse with artisanal brews and fresh pastries",
         address: "123 Main St, New York, NY",
@@ -332,6 +340,8 @@ export class MemStorage implements IStorage {
       {
         id: 2,
         name: "The Hungry Fork",
+        neighborhood: "Greenwich Village",
+        recommender: "John Doe",
         type: "restaurant",
         description: "Farm-to-table restaurant with seasonal ingredients",
         address: "456 Broadway, New York, NY",
@@ -351,6 +361,8 @@ export class MemStorage implements IStorage {
       {
         id: 3,
         name: "Nightcap Lounge",
+        neighborhood: "Greenwich Village",
+        recommender: "John Doe",
         type: "bar",
         description: "Stylish cocktail bar with live jazz music",
         address: "789 5th Ave, New York, NY",
@@ -370,6 +382,8 @@ export class MemStorage implements IStorage {
       {
         id: 4,
         name: "Morning Brew Coffee",
+        neighborhood: "Greenwich Village",
+        recommender: "John Doe",
         type: "coffee",
         description: "Specialty coffee shop with single-origin beans",
         address: "234 Park Ave, New York, NY",

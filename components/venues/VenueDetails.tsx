@@ -145,6 +145,18 @@ export function VenueDetails() {
                 </a>
               </div>
             )}
+
+            {selectedVenue.neighborhood && (
+              <div className="flex items-center text-gray-600 text-sm mt-3">
+                <span>{selectedVenue.neighborhood}</span>
+              </div>
+            )}
+
+            {selectedVenue.recommender && (
+              <div className="flex items-center text-gray-600 italic font-bold text-sm mt-3">
+                <span>Recommendation: {selectedVenue.recommender}</span>
+              </div>
+            )}
           </div>
 
           <div className="mt-6 flex space-x-3">

@@ -33,6 +33,8 @@ export const venues = pgTable("venues", {
   imageUrl: text("image_url"),
   tags: text("tags").array(),
   distance: doublePrecision("distance"), // Calculated field, not stored in DB
+  neighborhood: text("neighborhood"),
+  recommender: text("recommender"),
 });
 
 export const insertVenueSchema = z.object({
@@ -50,6 +52,8 @@ export const insertVenueSchema = z.object({
   phoneNumber: z.string().nullable(),
   website: z.string().nullable(),
   imageUrl: z.string().nullable(),
+  neighborhood: z.string().nullable(),
+  recommender: z.string().nullable(),
   tags: z.array(z.string()).nullable()
 });
 

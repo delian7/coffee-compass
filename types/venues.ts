@@ -1,6 +1,8 @@
 export interface Venue {
   id: number;
   name: string;
+  neighborhood?: string;
+  recommender?: string;
   experienceLevel?: string;
   type: VenueType;
   description: string;
