@@ -40,12 +40,12 @@ export function VenueCard({ venue, isMobile = false }: VenueCardProps) {
             </span>
           </div>
 
-          <Rating
+          {/* <Rating
             value={venue.rating || 0}
             reviewCount={venue.reviewCount}
             size="sm"
             className="mt-1"
-          />
+          /> */}
 
           <div className="flex items-center text-gray-600 text-xs mt-2">
             <MapPin className="h-3 w-3 mr-1 text-coffee-primary" />
