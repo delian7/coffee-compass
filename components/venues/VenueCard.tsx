@@ -50,9 +50,17 @@ export function VenueCard({ venue, isMobile = false }: VenueCardProps) {
           <div className="flex items-center text-gray-600 text-xs mt-2">
             <MapPin className="h-3 w-3 mr-1 text-coffee-primary" />
             <span>{formatDistance(venue.distance)}</span>
-            <span className="mx-2">•</span>
+            {/* <span className="mx-2">•</span>
             <Clock className="h-3 w-3 mr-1" />
-            <span>{venue.openingHours ? (checkIsOpen(venue.openingHours) ? 'Open' : 'Closed') : 'Hours N/A'}</span>
+            <span>{venue.openingHours ? (checkIsOpen(venue.openingHours) ? 'Open' : 'Closed') : 'Hours N/A'}</span> */}
+          </div>
+
+          <p className="text-gray-600 text-sm mt-2">
+            {truncateText(venue.description, 100)}
+          </p>
+
+          <div className={`flex items-center text-gray-600 text-xs italic font-bold mt-3 ${venue.recommender ? 'visible' : 'hidden'}`}>
+            <span>Recommended By: {venue.recommender}</span>
           </div>
         </CardContent>
       </Card>
@@ -90,7 +98,7 @@ export function VenueCard({ venue, isMobile = false }: VenueCardProps) {
           <span>{venue.neighborhood}</span>
         </div>
 
-        <div className="flex items-center text-gray-600 text-xs italic font-bold mt-3">
+        <div className={`flex items-center text-gray-600 text-xs italic font-bold mt-3 ${venue.recommender ? 'visible' : 'hidden'}`}>
           <span>Recommended By: {venue.recommender}</span>
         </div>
 
